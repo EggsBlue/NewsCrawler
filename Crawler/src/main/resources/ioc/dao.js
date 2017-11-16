@@ -30,27 +30,6 @@ var ioc = {
 		type : "org.nutz.dao.impl.NutDao",
 		args : [ {
 			refer : "dataSource"
-		} ],
-		fields : {
-            executor : {refer:"cacheExecutor"}
-        }
-	},
-	cacheExecutor : {
-        type : "org.nutz.plugins.cache.dao.CachedNutDaoExecutor",
-        fields : {
-            cacheProvider : {refer:"cacheProvider"},
-            // 需要缓存的表名
-            cachedTableNames : ["sys_menu"]
-        }
-    },
-    // 基于Ehcache的DaoCacheProvider
-    cacheProvider : {
-        type : "org.nutz.plugins.cache.dao.impl.provider.EhcacheDaoCacheProvider",
-        fields : {
-            cacheManager : {refer:"cacheManager"} // 引用ehcache.js中定义的CacheManager
-        },
-        events : {
-            create : "init"
-        }
-    }
+		} ]
+	}
 };
